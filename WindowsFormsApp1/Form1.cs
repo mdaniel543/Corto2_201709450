@@ -26,14 +26,12 @@ namespace WindowsFormsApp1
             ParseTreeNode resultado = Sintactico.analizar(textBox1.Text);
             if (resultado != null)
             {
-                textBox2.Text = "Entrada correcta";
-                pictureBox1.Image = Image.FromFile(Path.Combine(Application.StartupPath, "AST.png"));
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 Recorrido.resolverOperacion(resultado);
+                richTextBox1.Text = Program.consola.ToString();
             }
             else
             {
-                textBox2.Text = "Entrada incorrecta";
+                richTextBox1.Text = "Entrada incorrecta";
             }
             
         }

@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.Analizador
             {
                 return null;
             }
-            generarImagen(raiz);
+            //generarImagen(raiz);
            
             return raiz;
         }
@@ -35,10 +35,10 @@ namespace WindowsFormsApp1.Analizador
             Console.WriteLine(grafoDOT);
 
             String rdot = "AST.dot";
-            String rpng = "AST.png";
+            String rpng = "AST.svg";
             System.IO.File.WriteAllText(rdot, grafoDOT);
             ProcessStartInfo startInfo = new ProcessStartInfo("dot.exe");
-            startInfo.Arguments = "-Tpng " + rdot + " -o " + rpng + "";
+            startInfo.Arguments = "-Tsvg " + rdot + " -o " + rpng + "";
             Process.Start(startInfo);
             //abrirgrafo();
         }

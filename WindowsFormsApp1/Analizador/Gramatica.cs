@@ -24,6 +24,8 @@ namespace WindowsFormsApp1.Analizador
             var menos = ToTerm("-");
             var por = ToTerm("*");
             var div = ToTerm("/");
+            var ParIzq = ToTerm("(");
+            var ParDer = ToTerm(")");
             #endregion
 
             #region No Terminales
@@ -42,6 +44,7 @@ namespace WindowsFormsApp1.Analizador
                     | E + menos + E
                     | E + por + E
                     | E + div + E
+                    | ParIzq + E + ParDer
                     | numero
                     | id;
 
@@ -65,6 +68,8 @@ namespace WindowsFormsApp1.Analizador
 
             #region Preferencias
             this.Root = S;
+            this.RegisterOperators(1, Associativity.Left, mas, menos);
+            this.RegisterOperators(2, Associativity.Left, por, div);
             #endregion
         }
     }
