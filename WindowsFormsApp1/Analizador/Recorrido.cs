@@ -10,12 +10,15 @@ namespace WindowsFormsApp1.Analizador
 {
     class Recorrido
     {
-        public static String C3D = "";
-        public static Boolean id = false;
+        public static String C3D;
+        public static Boolean id;
         public static string temporal;
-        public static int cont = 0;
+        public static int cont;
         public static void resolverOperacion(ParseTreeNode root) {
-
+            temporal = "";
+            cont = 0;
+            id = false;
+            C3D = "";
             MessageBox.Show("El resultado es: " + expresion(root.ChildNodes.ElementAt(0)));
             Program.consola.Append(C3D);
 

@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Program.consola.Clear();
             ParseTreeNode resultado = Sintactico.analizar(textBox1.Text);
             if (resultado != null)
             {
